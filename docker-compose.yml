@@ -1,0 +1,24 @@
+services:
+  nginx:
+    container_name: nginx-drawio
+    image: nginx:1.27
+    restart: unless-stopped
+    volumes:
+    - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    - ~/certs/:/certs/:ro
+    - /etc/localtime:/etc/localtime:ro
+    ports:
+#    - 80:80
+    - 60100:443
+    networks:
+    - drawio-network
+  drawio:
+    restart: unless-stopped
+    container_name: drawiotomcat
+    image: drawiotomcat
+    build:
+      dockerfile: ./Dockerfile
+    networks:
+    - drawio-network
+networks:
+  drawio-network:
