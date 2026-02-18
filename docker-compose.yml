@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     volumes:
     - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-    - ~/certs/:/certs/:ro
+    - ${DIR_CERTS-.}/:/certs/:ro
     - /etc/localtime:/etc/localtime:ro
     ports:
 #    - 80:80

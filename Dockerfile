@@ -1,4 +1,4 @@
-FROM tomcat:9.0.86-jre11-temurin-jammy
+FROM tomcat:jre21-temurin
 
 # Set working directory to Tomcat webapps
 WORKDIR /usr/local/tomcat/webapps
